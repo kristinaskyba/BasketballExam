@@ -65,7 +65,7 @@ public class MyStepdefsRegister {
         boolean age = Boolean.parseBoolean(ageStr);
         boolean ethics = Boolean.parseBoolean(ethicsStr);
         if (terms) {
-            WebElement termsCheckbox = waitForElementToBeClickable(By.id("sign_up_26"));
+            WebElement termsCheckbox = waitForElementToBeClickable(By.id("sign_up_25"));
             if (termsCheckbox.isSelected()) {
                 termsCheckbox.click();
             }
