@@ -1,0 +1,55 @@
+Scenario Outline:
+  When User is on the registration webpage
+  When User filling in <name>, <lastname>
+
+    Examples:
+      | name  | lastname  | email       | password | confirmPass | therms | age  | ethics | register | result               |
+      | Name2 | LastName2 | 2@gmail.com | 12345    | 12345       | true   | true | true   | true     | nameMissing          |
+      | Name3 | LastName3 | 3@gmail.com | 12345    | 12345       | true   | true | true   | true     | lastnameMissing      |
+      | Name4 | LastName4 | 4@gmail.com | 12345    | 12312345678 | true   | true | true   | true     | passwordDoesn'tMatch |
+      | Name5 | LastName5 | 5@gmail.com | 12345    | 12345       | false  | true | true   | true     | termsAreNotClicked   |
+
+  Scenario:
+    Given User is on the registration webpage
+    When User filling in name "Name2", lastname "LastName2"
+    And User filling in "1@gmail.com", "12345"
+    And User confirms "12345"
+    And User click in "true", "true", "true"
+    And User clicks on "true" button
+    Then User gets "some result"
+
+  Scenario:
+    Given User is on the registration webpage
+    When User "Name2" and "LastName"
+    And User filling in "1@gmail.com", "12345"
+    And User confirms "12345"
+    And User click in "true", "true", "true"
+    And User clicks on "true" button
+    Then User gets "some result"
+
+  Scenario:
+    Given User is on the registration webpage
+    When User "Name3" and "LastName"
+    And User filling in "1@gmail.com", "12345"
+    And User confirms "12345"
+    And User click in "true", "true", "true"
+    And User clicks on "true" button
+    Then User gets "some result"
+
+  Scenario:
+    Given User is on the registration webpage
+    When User "Name4" and "LastName"
+    And User filling in "1@gmail.com", "12345"
+    And User confirms "12345"
+    And User click in "true", "true", "true"
+    And User clicks on "true" button
+    Then User gets "some result"
+
+  Scenario:
+    Given User is on the registration webpage
+    When User "Name5" and "LastName"
+    And User filling in "1@gmail.com", "12345"
+    And User confirms "12345"
+    And User click in "true", "true", "true"
+    And User clicks on "true" button
+    Then User gets "some result"
