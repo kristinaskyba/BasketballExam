@@ -78,24 +78,19 @@ public class MyStepdefsRegister {
     @When("User accepts therms {string}, {string}, and {string}")
     public void userAcceptsThermsAnd(String termsStr, String ageStr, String ethicsStr) {
 
-
-        boolean terms = Boolean.parseBoolean(termsStr);
-        boolean age = Boolean.parseBoolean(ageStr);
-        boolean ethics = Boolean.parseBoolean(ethicsStr);
-
-        if (terms) {
+        if (termsStr.equalsIgnoreCase("true")) {
             WebElement termBox = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("label[for" +
                     "='sign_up_25']")));
             termBox.click();
         }
 
-        if (age) {
+        if (ageStr.equalsIgnoreCase("true")) {
             WebElement ageCheckbox = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("label[for" +
                     "='sign_up_26']")));
             ageCheckbox.click();
         }
 
-        if (ethics) {
+        if (ethicsStr.equalsIgnoreCase("true")) {
             WebElement ethicsCheckbox = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[for" +
                     "='fanmembersignup_agreetocodeofethicsandconduct" +
                     "']")));
@@ -112,7 +107,7 @@ public class MyStepdefsRegister {
 
     @Then("User sees the message {string}")
     public void userSeesTheMessage(String expectedMessage) {
-        WebElement messageElement = null;
+        WebElement messageElement = null; //here I want to check message after send btn
         System.out.println(expectedMessage);
         if (expectedMessage.equalsIgnoreCase("THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND")) {
             messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class='bold  gray  text-center  margin-bottom-40']")));
